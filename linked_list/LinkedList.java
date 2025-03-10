@@ -39,6 +39,20 @@ class LinkedList {
         }
         return false;
     }
+
+    public void insertAfterTheMember(int member, int data) {
+        Node newNode = new Node(data);
+        Node currentNode = Head;
+        while (currentNode != null) {
+            if (currentNode.data == member) {
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                break;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
+    }
 }
 
 class Node {

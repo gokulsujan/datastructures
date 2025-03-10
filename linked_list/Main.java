@@ -7,7 +7,7 @@ public class Main {
         int option = 0;
         Scanner sc = new Scanner(System.in);
 
-        while (option != 5) {
+        while (option != 6) {
             selectOption();
             System.out.print("Option: ");
             option = sc.nextInt();
@@ -26,6 +26,9 @@ public class Main {
                     traverse(ll);
                     continue;
                 case 5:
+                    addAfterElement(ll);
+                    continue;
+                case 6:
                     System.out.println("Exiting from linked list.");
                     break;
                 default:
@@ -41,7 +44,8 @@ public class Main {
         System.out.println("Option 2: Check data exists in the linkedlist");
         System.out.println("Option 3: Delete a data in the linked list");
         System.out.println("Option 4: Print all the datas in the linked list");
-        System.out.println("Option 5: Exits");
+        System.out.println("Option 5: Add after the member");
+        System.out.println("Option 6: Exit Program");
     }
 
     public static LinkedList insert(LinkedList ll) {
@@ -81,5 +85,14 @@ public class Main {
             System.out.println(currentNode.data);
             currentNode = currentNode.next;
         }
+    }
+
+    public static void addAfterElement(LinkedList ll) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the member in the linked list:");
+        int member = sc.nextInt();
+        System.out.print("Enter the data to be inserted after the above given member: ");
+        int data = sc.nextInt();
+        ll.insertAfterTheMember(member, data);
     }
 }
