@@ -15,5 +15,10 @@ public class Main {
         System.out.print("Inorder traversal: ");
         binaryTree.inorderTraversal(binaryTree.root);
         System.out.println("");
+
+        // Postorder traversal
+        System.out.print("Postorder traversal: ");
+        binaryTree.postorderTraversal(binaryTree.root);
+        System.out.println("");
     }
 }
