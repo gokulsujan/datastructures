@@ -10,5 +10,10 @@ public class Main {
         System.out.print("Preorder traversal: ");
         binaryTree.preorderTraversal(binaryTree.root);
         System.out.println("");
+
+        // Inorder traversal
+        System.out.print("Inorder traversal: ");
+        binaryTree.inorderTraversal(binaryTree.root);
+        System.out.println("");
     }
 }
