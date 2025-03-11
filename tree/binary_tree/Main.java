@@ -20,5 +20,9 @@ public class Main {
         System.out.print("Postorder traversal: ");
         binaryTree.postorderTraversal(binaryTree.root);
         System.out.println("");
+
+        // Level order traversal
+        System.out.println("Level order traversal");
+        binaryTree.levelorderTraversal(binaryTree.root);
     }
 }

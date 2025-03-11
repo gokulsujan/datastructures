@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class BinaryTree {
     Node root;
 
@@ -43,6 +45,33 @@ public class BinaryTree {
         postorderTraversal(root.left);
         postorderTraversal(root.right);
         System.out.print(root.data + " ");
+    }
+
+    public void levelorderTraversal(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+
+        while (!q.isEmpty()) {
+            Node currentNode = q.remove();
+            if (currentNode == null) {
+                System.out.println();
+                if (q.isEmpty()) {
+                    break;
+                } else {
+                    q.add(null);
+                }
+            } else {
+                System.out.print(currentNode.data + " ");
+                if (currentNode.left != null) {
+                    q.add(currentNode.left);
+                }
+
+                if (currentNode.right != null) {
+                    q.add(currentNode.right);
+                }
+            }
+        }
     }
 }
 
