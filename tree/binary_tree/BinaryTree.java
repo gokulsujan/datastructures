@@ -117,6 +117,35 @@ public class BinaryTree {
 
         return Math.max(diam1, Math.max(diam2, diam3));
     }
+
+    static class TreeInfo{
+        int diam;
+        int height;
+    
+        TreeInfo(int diam, int height) {
+            this.diam = diam;
+            this.height = height;
+        }
+    }
+
+    public static TreeInfo diameter2(Node root) {
+        if (root == null) {
+            return new TreeInfo(0,0);
+        }
+
+        TreeInfo left = diameter2(root.left);
+        TreeInfo right = diameter2(root.right);
+
+        int myHeight = Math.max(left.height, right.height) + 1;
+
+        int diam1 = left.diam;
+        int diam2 = right.diam;
+        int diam3 = left.height + right.height + 1;
+
+        int myDiam = Math.max(Math.max(diam1, diam2), diam3);
+
+        return new TreeInfo(myDiam, myHeight);
+    }
 }
 
 class Node {
