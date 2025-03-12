@@ -81,6 +81,14 @@ public class BinaryTree {
 
         return totalNodes(root.left) + totalNodes(root.right) + 1;
     }
+
+    public int sumOfNodesData(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return sumOfNodesData(root.left) + sumOfNodesData(root.right) + root.data;
+    }
 }
 
 class Node {

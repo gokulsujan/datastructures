@@ -27,5 +27,9 @@ public class Main {
 
         // Count of total nodes
         System.out.println("Total number of nodes: " + binaryTree.totalNodes(binaryTree.root));
+
+        // Sum of datas in the node
+        System.out.println("Sum data of nodes: " + binaryTree.sumOfNodesData(binaryTree.root));
+
     }
 }
