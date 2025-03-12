@@ -89,6 +89,27 @@ public class BinaryTree {
 
         return sumOfNodesData(root.left) + sumOfNodesData(root.right) + root.data;
     }
+
+    public int height(Node root) {
+        int rightSubTreeHeight = 0;
+        int leftSubTreeHeight = 0;
+
+        if (root.left != null) {
+            leftSubTreeHeight = height(root.left);
+        }
+
+        if (root.right != null) {
+            rightSubTreeHeight = height(root.right);
+        }
+
+        if (rightSubTreeHeight > leftSubTreeHeight) {
+            return rightSubTreeHeight + 1;
+        } else if (rightSubTreeHeight < leftSubTreeHeight) {
+            return leftSubTreeHeight + 1;
+        } else {
+            return leftSubTreeHeight + 1;
+        }
+    }
 }
 
 class Node {

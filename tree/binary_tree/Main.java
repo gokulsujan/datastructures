@@ -31,5 +31,8 @@ public class Main {
         // Sum of datas in the node
         System.out.println("Sum data of nodes: " + binaryTree.sumOfNodesData(binaryTree.root));
 
+        // Height of the tree
+        System.out.println("Height of the tree: " + binaryTree.height(binaryTree.root));
+
     }
 }
