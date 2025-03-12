@@ -24,5 +24,8 @@ public class Main {
         // Level order traversal
         System.out.println("Level order traversal");
         binaryTree.levelorderTraversal(binaryTree.root);
+
+        // Count of total nodes
+        System.out.println("Total number of nodes: " + binaryTree.totalNodes(binaryTree.root));
     }
 }

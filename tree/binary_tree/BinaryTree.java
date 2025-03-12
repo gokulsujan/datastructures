@@ -73,6 +73,14 @@ public class BinaryTree {
             }
         }
     }
+
+    public int totalNodes(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return totalNodes(root.left) + totalNodes(root.right) + 1;
+    }
 }
 
 class Node {
