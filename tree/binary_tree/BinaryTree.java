@@ -91,16 +91,11 @@ public class BinaryTree {
     }
 
     public int height(Node root) {
-        int rightSubTreeHeight = 0;
-        int leftSubTreeHeight = 0;
-
-        if (root.left != null) {
-            leftSubTreeHeight = height(root.left);
+        if (root == null) {
+            return 0;
         }
-
-        if (root.right != null) {
-            rightSubTreeHeight = height(root.right);
-        }
+        int rightSubTreeHeight = height(root.left);
+        int leftSubTreeHeight = height(root.right);
 
         if (rightSubTreeHeight > leftSubTreeHeight) {
             return rightSubTreeHeight + 1;
@@ -109,6 +104,18 @@ public class BinaryTree {
         } else {
             return leftSubTreeHeight + 1;
         }
+    }
+
+    public int diameter(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int diam1 = diameter(root.left);
+        int diam2 = diameter(root.right);
+        int diam3 = height(root.left) + height(root.right) + 1;
+
+        return Math.max(diam1, Math.max(diam2, diam3));
     }
 }
 

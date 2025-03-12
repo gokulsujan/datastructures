@@ -34,5 +34,8 @@ public class Main {
         // Height of the tree
         System.out.println("Height of the tree: " + binaryTree.height(binaryTree.root));
 
+        //Longest path between two nodes
+        System.out.println("The longest path between 2 nodes: "+binaryTree.diameter(binaryTree.root));
+
     }
 }
