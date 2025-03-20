@@ -146,6 +146,19 @@ public class BinaryTree {
 
         return new TreeInfo(myDiam, myHeight);
     }
+
+    public Node buildBinarySearchTree(Node root, int val) {
+        if (root == null) {
+            Node newNode = new Node(val);
+            return newNode;
+        } else if(root.data == val){
+            return root;
+        } else if(root.data > val){ 
+            return buildBinarySearchTree(root.left, val);
+        } else {
+            return buildBinarySearchTree(root.right, val);
+        }
+    }
 }
 
 class Node {
