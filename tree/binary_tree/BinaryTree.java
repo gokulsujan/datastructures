@@ -159,6 +159,20 @@ public class BinaryTree {
             return buildBinarySearchTree(root.right, val);
         }
     }
+
+    public boolean isKeyExistInBst(Node root, int key) {
+        if (root == null) {
+            return false;
+        }
+
+        if (root.data == key) {
+            return true;
+        } else if(root.data > key) {
+            return isKeyExistInBst(root.left, key);
+        } else {
+            return isKeyExistInBst(root.right, key);
+        }
+    }
 }
 
 class Node {
