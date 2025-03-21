@@ -191,11 +191,9 @@ public class BinaryTree {
                 while (currentNode.left != null) {
                     currentNode = currentNode.left;
                 }
+                root.data = currentNode.data;
                 root.right = deleteKeyFromBST(root.right, currentNode.data);
-                Node newRoot = new Node(currentNode.data);
-                newRoot.left = root.left;
-                newRoot.right = root.right;
-                return newRoot;
+                return root;
             }
         }
 
