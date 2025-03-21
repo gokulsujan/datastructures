@@ -118,10 +118,10 @@ public class BinaryTree {
         return Math.max(diam1, Math.max(diam2, diam3));
     }
 
-    static class TreeInfo{
+    static class TreeInfo {
         int diam;
         int height;
-    
+
         TreeInfo(int diam, int height) {
             this.diam = diam;
             this.height = height;
@@ -130,7 +130,7 @@ public class BinaryTree {
 
     public static TreeInfo diameter2(Node root) {
         if (root == null) {
-            return new TreeInfo(0,0);
+            return new TreeInfo(0, 0);
         }
 
         TreeInfo left = diameter2(root.left);
@@ -151,9 +151,9 @@ public class BinaryTree {
         if (root == null) {
             Node newNode = new Node(val);
             return newNode;
-        } else if(root.data == val){
+        } else if (root.data == val) {
             return root;
-        } else if(root.data > val){ 
+        } else if (root.data > val) {
             return buildBinarySearchTree(root.left, val);
         } else {
             return buildBinarySearchTree(root.right, val);
@@ -167,11 +167,46 @@ public class BinaryTree {
 
         if (root.data == key) {
             return true;
-        } else if(root.data > key) {
+        } else if (root.data > key) {
             return isKeyExistInBst(root.left, key);
         } else {
             return isKeyExistInBst(root.right, key);
         }
+    }
+
+    public Node deleteKeyFromBST(Node root, int key) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.data == key) {
+            if (root.right == null && root.left == null) {
+                return null;
+            } else if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            } else {
+                Node currentNode = root.right;
+                while (currentNode.left != null) {
+                    currentNode = currentNode.left;
+                }
+                root.right = deleteKeyFromBST(root.right, currentNode.data);
+                Node newRoot = new Node(currentNode.data);
+                newRoot.left = root.left;
+                newRoot.right = root.right;
+                return newRoot;
+            }
+        }
+
+        if (root.data > key) {
+            root.left = deleteKeyFromBST(root.left, key);
+        }
+
+        else if (root.data < key) {
+            root.right = deleteKeyFromBST(root.right, key);
+        }
+        return root;
     }
 }
 
